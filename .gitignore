@@ -12,3 +12,7 @@
 /captures
 .externalNativeBuild
 /.idea
+
+.project
+.classpath
+.settings/
