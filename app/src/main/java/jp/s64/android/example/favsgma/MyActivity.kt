@@ -8,6 +8,7 @@ import jp.s64.android.example.favsgma.databinding.MyActivityBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import local.jp.s64.android.example.favsgma.core.flavor
 
 class MyActivity : AppCompatActivity() {
 
@@ -24,6 +25,7 @@ class MyActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.my_activity)
 
         binding.status = "Load"
+        binding.coreFlavor = MyCoreWrapper.flavor()
 
         binding.button.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
