@@ -17,7 +17,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{status}"
+                android:layout_gravity="center"
         tools:text="Status"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="core-flavor"
+                android:layout_gravity="end|bottom"
+        android:text="@{coreFlavor}"/>
 
     </FrameLayout>
 </layout>
