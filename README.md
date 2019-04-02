@@ -48,7 +48,7 @@ tree ~/.m2
 #                                 │   ├── core-gmalite-0.0.1-SNAPSHOT.pom
 #                                 │   └── maven-metadata-local.xml
 #                                 └── maven-metadata-local.xml
-
+# 
 # 13 directories, 12 files
 open -a 'Android Studio' .
 ```
