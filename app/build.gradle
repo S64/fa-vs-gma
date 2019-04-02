@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    flavorDimensions 'sdk'
+
+    productFlavors {
+        appFa {
+            dimension 'sdk'
+        }
+        appGma {
+            dimension 'sdk'
+        }
+        appGmalite {
+            dimension 'sdk'
+        }
+    }
+
+    defaultConfig {
+        applicationId "jp.s64.android.example.favsgma"
+        minSdkVersion 28
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+    }
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+
+    appFaImplementation 'local.jp.s64.android.example.favsgma:core-fa:0.0.1-SNAPSHOT'
+    appFaImplementation 'com.google.firebase:firebase-ads:17.2.0'
+
+    appGmaImplementation 'local.jp.s64.android.example.favsgma:core-gma:0.0.1-SNAPSHOT'
+    appGmaImplementation 'com.google.android.gms:play-services-ads:17.2.0'
+
+    appGmaliteImplementation 'local.jp.s64.android.example.favsgma:core-gmalite:0.0.1-SNAPSHOT'
+    appGmaliteImplementation 'com.google.android.gms:play-services-ads-lite:17.2.0'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.0-alpha'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.0-alpha'
+
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha03'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+}
